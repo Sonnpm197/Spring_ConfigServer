@@ -1,0 +1,23 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+#         if this is private repo, run: git config http.sslVerify false
+          uri: https://github.com/Sonnpm197/LearningEnglishWebConfiguration
+#         if config files are separated into folders, list all here
+          search-paths: learningenglish
+
+#         To encrypt: POST http://localhost:8888/encrypt with body as the data being encrypted
+
+#         By default, Spring Cloud Config will do all the property decryption on the server and
+#         pass the results back to the applications consuming the properties as plain, unencrypted text.
+#         However, you can tell Spring Cloud Config to not decrypt on the server
+#         and make it the responsibility of the application retrieving the configuration data to
+#         decrypt the encrypted properties.
+        encrypt:
+          enabled: false
+
